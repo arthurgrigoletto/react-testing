@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 
 class CommentBox extends Component {
-  state = {
-    comment: ''
-  };
+  constructor() {
+    super();
+
+    this.state = {
+      comment: ''
+    };
+  }
 
   handleChange = event => {
-    this.setState({ comment: event.target.value });
+    this.setState({ ...this.state, [event.target.name]: event.target.value });
   };
 
   handleSubmit = event => {
@@ -19,7 +23,11 @@ class CommentBox extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <h4>Add a Comment</h4>
-        <textarea onChange={this.handleChange} value={this.state.comment} />
+        <textarea
+          onChange={this.handleChange}
+          name="comment"
+          value={this.state.comment}
+        />
         <div>
           <button>Submit Comment</button>
         </div>
