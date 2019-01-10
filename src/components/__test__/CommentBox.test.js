@@ -31,7 +31,7 @@ describe('the textarea', () => {
     // FORCE THE COMPONENT TO RE-RENDER
     wrapped.update();
   });
-  
+
   it('has a textarea that users can type in', () => {
     expect(wrapped.find('textarea').prop('value')).toEqual('New Comment');
   });
